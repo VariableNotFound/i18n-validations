@@ -1,0 +1,5 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model DateTime?
+@inject IViewLocalizer Loc
+
+@Html.TextBoxFor(m=>m, format: "{0:d}", htmlAttributes: new {  maxlength="10"}) @Loc["DateFormat"]

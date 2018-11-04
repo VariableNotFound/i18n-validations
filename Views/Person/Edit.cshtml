@@ -1,0 +1,23 @@
+﻿@model LocalizationDemo.ViewModels.PersonViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Loc
+@{
+    ViewData["Title"] = Loc["Title"];
+}
+<hr />
+<p>
+    @Loc["SwitchLanguageTo"]: <a href="/?culture=es">@Loc["Spanish"]</a> | <a href="/?culture=en">@Loc["English"]</a>
+</p>
+
+<h1>
+    @Loc["Title"]
+</h1>
+<form method="post">
+    @Html.EditorForModel()
+    <div style="margin-top: 10px">
+        <input type="submit" value="@Loc["SaveBtn"]" />
+    </div>
+</form>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

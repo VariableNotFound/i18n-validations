@@ -1,0 +1,29 @@
+﻿@model LocalizationDemo.ViewModels.PersonViewModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Loc
+
+@{
+    ViewBag.Title = Loc["Title", Model.Name];
+}
+
+<h2>@ViewBag.Title</h2>
+
+@Html.DisplayForModel()
+
+<p style="margin-top: 10px">
+    <a href="javascript:history.back()"><span class="glyphicon glyphicon-chevron-left"></span> @Loc["Back"]</a>
+</p>
+
+@section Scripts
+{
+    <style>
+        .display-label {
+            font-weight: bold;
+        }
+        .display-field {
+            margin-bottom: 4px;
+            padding-left: 5px;
+        }
+
+    </style>
+
+}
