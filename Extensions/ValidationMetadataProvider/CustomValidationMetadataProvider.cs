@@ -25,7 +25,8 @@ namespace LocalizationDemo.Extensions.ValidationMetadataProvider
 
         public void CreateValidationMetadata(ValidationMetadataProviderContext context)
         {
-            if (context.Key.ModelType.GetTypeInfo().IsValueType
+            if (context.Key.ModelType.GetTypeInfo().IsValueType 
+                && Nullable.GetUnderlyingType(context.Key.ModelType.GetType()) != null
                 && !context.ValidationMetadata.ValidatorMetadata.OfType<RequiredAttribute>().Any())
             {
                 context.ValidationMetadata.ValidatorMetadata.Add(new RequiredAttribute());
